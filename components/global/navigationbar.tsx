@@ -14,7 +14,7 @@ import { Avatar } from "@/components/ui/avatar";
 import { SignInButton, UserButton } from "@clerk/nextjs";
 
 const Navigationbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isAuthenticated, isLoading } = useConvexAuth();
   return (
