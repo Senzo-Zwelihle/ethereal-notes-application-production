@@ -1,4 +1,4 @@
-![Hero Image](/hero.png)
+![Hero Image](./public/hero.png)
 
 ```md
 # Ethereal Notes - Your Modern Note-Taking Oasis
