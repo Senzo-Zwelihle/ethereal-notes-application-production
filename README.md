@@ -112,7 +112,7 @@ Ethereal Notes follows a well-structured architecture for maintainability and sc
 - **`styles/`**: Global CSS files and Tailwind configuration
 - **`public/`**: Static assets including images and fonts
 
-## 🔧 Development Tools & Practices
+##  Development Tools & Practices
 
 Ethereal Notes embraces modern development practices with:
 
@@ -120,10 +120,8 @@ Ethereal Notes embraces modern development practices with:
 - **Type Checking**: TypeScript for improved code maintainability
 - **Formatting**: Prettier (optional but recommended)
 
-##  License
 
-[MIT](LICENSE)
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
