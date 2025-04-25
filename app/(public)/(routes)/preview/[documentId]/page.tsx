@@ -3,32 +3,26 @@
 import { useMutation, useQuery } from "convex/react";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
+import { useParams } from 'next/navigation'; // Import useParams
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { Toolbar } from "@/components/tools/toolbar";
 import { Cover } from "@/components/tools/cover";
 import { Skeleton } from "@/components/ui/skeleton";
 
-interface DocumentIdPageProps {
-  params: {
-    documentId: Id<"documents">;
-  };
-};
-
-const DocumentIdPage = ({
-  params
-}: DocumentIdPageProps) => {
+const DocumentIdPage = () => {
+  const { documentId } = useParams(); // Use useParams to get the documentId
   const Editor = useMemo(() => dynamic(() => import("@/components/tools/blocknote-editor"), { ssr: false }) ,[]);
 
   const document = useQuery(api.documents.getById, {
-    documentId: params.documentId
+    documentId: documentId as Id<"documents">, // Cast documentId here
   });
 
   const update = useMutation(api.documents.update);
 
   const onChange = (content: string) => {
     update({
-      id: params.documentId,
+      id: documentId as Id<"documents">, // Cast documentId here as well
       content
     });
   };
@@ -53,7 +47,7 @@ const DocumentIdPage = ({
     return <div>Not found</div>
   }
 
-  return ( 
+  return (
     <div className="pb-40">
       <Cover preview url={document.coverImage} />
       <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
@@ -67,5 +61,5 @@ const DocumentIdPage = ({
     </div>
   );
 }
- 
+
 export default DocumentIdPage;
